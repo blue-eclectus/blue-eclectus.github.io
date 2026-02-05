@@ -4,121 +4,183 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Scientific Reasoning Tools</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Karla:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
+    /* Variation 1: Cool Slate — Outfit + Karla, bordered cards */
+    :root {
+      --ink: #1a1a1a;
+      --text: #3d3d3d;
+      --muted: #6b6b6b;
+      --rule: #d4d0cb;
+      --accent: #4856b5;
+      --bg: #fafafa;
+      --card-bg: #eeece7;
+      --card-border: #d4d0cb;
     }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      max-width: 650px;
+      font-family: 'Karla', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 620px;
       margin: 0 auto;
-      padding: 2rem 1.5rem;
-      background: #fafafa;
+      padding: 4.5rem 1.5rem 3rem;
     }
-    h1 {
-      margin-bottom: 0.25rem;
+
+    .intro { margin-bottom: 3rem; }
+
+    .intro h1 {
+      font-family: 'Outfit', sans-serif;
       font-weight: 600;
+      font-size: 1.6rem;
+      line-height: 1.2;
+      color: #2a2d4a;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
     }
-    h2 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-top: 2.5rem;
-      margin-bottom: 1rem;
-      color: #555;
+
+    .intro p {
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    .section-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 0.5rem;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
     }
+
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 3em;
+    }
+
     .project {
-      margin-bottom: 1.5rem;
+      padding: 1.25rem 1.4rem;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
     }
-    .project-title {
-      font-weight: 600;
-      font-size: 1.05rem;
+
+    .project-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 500;
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
     }
-    .project-title a {
-      color: #0066cc;
+
+    .project-name a {
+      color: #2a2d4a;
       text-decoration: none;
     }
-    .project-title a:hover {
-      text-decoration: underline;
+
+    .project-name a:hover {
+      color: var(--accent);
     }
+
     .project-desc {
-      color: #555;
-      margin-top: 0.25rem;
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.6;
     }
+
     .project-links {
-      margin-top: 0.35rem;
-      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      font-size: 14px;
     }
+
     .project-links a {
-      color: #666;
+      color: var(--accent);
+      font-weight: 500;
       text-decoration: none;
-      margin-right: 1rem;
     }
+
     .project-links a:hover {
-      color: #0066cc;
-    }
-    .papers {
-      margin-bottom: 1.5rem;
-    }
-    .papers a {
-      color: #0066cc;
-      text-decoration: none;
-    }
-    .papers a:hover {
       text-decoration: underline;
     }
+
     .footer {
-      margin-top: 3rem;
       padding-top: 1.5rem;
-      border-top: 1px solid #ddd;
-      font-size: 0.9rem;
-      color: #666;
+      border-top: 1px solid var(--rule);
+      font-size: 15px;
+      color: var(--muted);
     }
+
     .footer a {
-      color: #666;
+      color: var(--text);
       text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.15s ease;
     }
-    .footer a:hover {
-      color: #0066cc;
+
+    .footer a:hover { color: var(--ink); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .intro, .section-label, .projects, .footer {
+      animation: fadeUp 0.5s ease both;
+    }
+    .section-label { animation-delay: 0.05s; }
+    .projects { animation-delay: 0.1s; }
+    .footer { animation-delay: 0.15s; }
+
+    @media (max-width: 480px) {
+      .page { padding: 3rem 1.25rem 2.5rem; }
+      .intro h1 { font-size: 1.75rem; }
     }
   </style>
 </head>
 <body>
-  <p>This page lists some of the tools I've built for scientific reasoning and research. These tools are designed to help researchers navigate the inferential challenges of science, such as identifying relevant evidence and assessing hypotheses in complex evidential scenarios.</p>
-
-  <h2>Projects</h2>
-
-  <div class="project">
-    <div class="project-title"><a href="https://evidenceseek.com">EvidenceSeek</a></div>
-    <div class="project-desc">A scientific search tool that finds and assesses papers based on their evidential relevance to your query.</div>
-    <div class="project-links">
-      <a href="https://evidenceseek.com">Try it out at evidenceseek.com</a>
+  <div class="page">
+    <div class="intro">
+      <h1>blue-eclectus</h1>
+      <p>This page lists some of the tools I've built for scientific reasoning and research. These tools are designed to help researchers navigate the inferential challenges of science, such as identifying relevant evidence and assessing hypotheses in complex evidential scenarios.</p>
     </div>
-  </div>
 
-  <div class="project">
-    <div class="project-title"><a href="https://github.com/blue-eclectus/ExplanatoryAccounts">ExplanatoryAccounts</a></div>
-    <div class="project-desc">R package for Bayesian analysis of competing scientific hypotheses using the explanatory-eliminative approach.</div>
-    <div class="project-links">
-      <a href="https://github.com/blue-eclectus/ExplanatoryAccounts">View on GitHub</a>
+    <div class="section-label">Projects</div>
+
+    <div class="projects">
+      <div class="project">
+        <div class="project-name"><a href="https://evidenceseek.com">EvidenceSeek</a></div>
+        <div class="project-desc">A scientific search tool that finds and assesses papers based on their evidential relevance to your query.</div>
+        <div class="project-links">Try it out at <a href="https://evidenceseek.com">evidenceseek.com</a></div>
+      </div>
+      <div class="project">
+        <div class="project-name"><a href="https://github.com/blue-eclectus/ExplanatoryAccounts">ExplanatoryAccounts</a></div>
+        <div class="project-desc">R package for Bayesian analysis of competing scientific hypotheses using the explanatory-eliminative approach.</div>
+        <div class="project-links">View on <a href="https://github.com/blue-eclectus/ExplanatoryAccounts">GitHub</a></div>
+      </div>
+      <div class="project">
+        <div class="project-name"><a href="https://github.com/blue-eclectus/ArgGraph">ArgGraph</a></div>
+        <div class="project-desc">Argument graph visualization and analysis tools.</div>
+        <div class="project-links">View on <a href="https://github.com/blue-eclectus/ArgGraph">GitHub</a></div>
+      </div>
     </div>
-  </div>
 
-  <div class="project">
-    <div class="project-title"><a href="https://github.com/blue-eclectus/ArgGraph">ArgGraph</a></div>
-    <div class="project-desc">Argument graph visualization and analysis tools.</div>
-    <div class="project-links">
-      <a href="https://github.com/blue-eclectus/ArgGraph">View on GitHub</a>
+    <div class="footer">
+      <a href="https://github.com/blue-eclectus">GitHub</a>
     </div>
-  </div>
-
-  <div class="footer">
-    <a href="https://github.com/blue-eclectus">GitHub</a>
   </div>
 </body>
 </html>
