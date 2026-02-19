@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scientific Reasoning Tools</title>
+  <title>blue-eclectus</title>
   <base target="_blank">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -16,11 +16,11 @@
       --ink: #1a1a1a;
       --text: #3d3d3d;
       --muted: #6b6b6b;
-      --rule: #d4d0cb;
+      --rule: #d4d4d4;
       --accent: #4856b5;
       --bg: #fafafa;
-      --card-bg: #eeece7;
-      --card-border: #d4d0cb;
+      --card-bg: #f2f5fa;
+      --card-border: #d4d8e0;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -53,7 +53,7 @@
     }
 
     .intro p {
-      color: var(--muted);
+      color: var(--text);
       line-height: 1.7;
     }
 
@@ -71,7 +71,7 @@
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
-      margin-bottom: 3em;
+      margin-bottom: 2em;
     }
 
     .project {
@@ -79,11 +79,18 @@
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
     }
 
     .project-name {
       font-family: 'Outfit', sans-serif;
-      font-weight: 500;
+      font-weight: 600;
       font-size: 1.2rem;
       margin-bottom: 0.3rem;
     }
@@ -110,7 +117,7 @@
 
     .project-links a {
       color: var(--accent);
-      font-weight: 500;
+      font-weight: 600;
       text-decoration: none;
     }
 
@@ -128,7 +135,7 @@
     .footer a {
       color: var(--accent);
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
     }
 
     .footer a:hover { text-decoration: underline; }
